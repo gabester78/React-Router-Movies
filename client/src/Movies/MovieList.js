@@ -10,7 +10,7 @@ const MovieList = (props) => {
         .get("http://localhost:5000/api/movies")
         .then((response) => {
           setMovies(response.data);
-          // console.log(response.data);
+          console.log(response.data, "<--data");
         })
         .catch((error) => {
           console.error("Server Error", error);
@@ -32,8 +32,8 @@ const MovieList = (props) => {
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
   return (
-    <Link to={`/movie/${movie.id}`}>
-      <div className="movie-card">
+    <div className="movie-card">
+      <Link to={`/movie/${movie.id}`}>
         <h2>{title}</h2>
         <div className="movie-director">
           Director: <em>{director}</em>
@@ -48,8 +48,8 @@ function MovieDetails({ movie }) {
             {star}
           </div>
         ))}
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 

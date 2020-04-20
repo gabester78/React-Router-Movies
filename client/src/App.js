@@ -12,7 +12,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <SavedList list={savedList} />
       <div>
         <Route exact path="/">
